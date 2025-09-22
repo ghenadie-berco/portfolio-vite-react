@@ -1,3 +1,67 @@
+
+:root {
+  --accent-primary  : #4c50cf;
+  --accent-secondary: #333333;
+  --text            : #ffffff;
+  --selected-text   : #ffffff;
+  --highlight       : #d8b1ff;
+  --hover-accent    : #e6cdff;
+  --border-color    : #a4b4ffb3;
+}
+
+html,
+body {
+  padding    : 0;
+  margin     : 0;
+  font-family: Roboto, sans-serif;
+  font-size  : 16px;
+  box-sizing : border-box;
+  overflow   : auto;
+}
+
+@keyframes backgroundShift {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+body {
+  background: linear-gradient(to bottom right,
+      #060610,
+      #0c0c22,
+      #2b2b6b,
+      #080817,
+      #0a0a1a);
+  background-size: 400% 400%;
+  animation      : backgroundShift 30s ease infinite;
+  display        : flex;
+  overflow       : hidden;
+}
+
+.g-width-100 {
+  width: 100%;
+}
+
+html,
+body {
+  height: 100%;
+  width : 100%;
+}
+
+body {
+  margin     : 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  color      : var(--text);
+}
+
 .view {
   position: absolute;
   top     : 0;
@@ -23,6 +87,69 @@
 .flex {
   flex: 1 1 auto;
 }
+
+.w-100 {
+  width: 100%;
+}
+
+.h-100 {
+  height: 100%;
+}
+
+a {
+  color     : var(--highlight);
+  transition: 100ms ease-in-out;
+
+  &:hover {
+    color: var(--hover-accent);
+  }
+
+  &:visited {
+    color: var(--accent-primary);
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  animation: fadeIn 400ms ease-in-out;
+}
+
+/* Scrollbar styles */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #0e0e1e;
+}
+
+::-webkit-scrollbar-thumb {
+  background   : var(--accent-primary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-primary);
+}
+
+/* Overrides */
+
+.MuiButtonBase-root {
+  color: #fff !important;
+}
+
+
+/* Dev */
 
 .zzz {
   border: 1px solid red;

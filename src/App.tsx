@@ -1,7 +1,7 @@
-import "./App.css";
-import Tabs from "@mui/material/Tabs";
-import Tab from "@mui/material/Tab";
+import Tabs from '@mui/material/Tabs';
+import Tab from '@mui/material/Tab';
 import { useState } from "react";
+import "./App.css";
 
 export interface Tab {
   id: string;
@@ -23,16 +23,22 @@ function App() {
   };
 
   return (
-    <Tabs
-      value={selectedTab}
-      onChange={handleChange}
-      className="zzz"
-      aria-label="basic tabs example"
-    >
-      {tabs.map((tab) => (
-        <Tab key={tab.id} label={tab.title} value={tab.id}></Tab>
-      ))}
-    </Tabs>
+    <div className="view flex-col">
+      <Tabs
+        value={selectedTab}
+        onChange={handleChange}
+        className="tabs"
+        aria-label="First Level Navigation"
+        variant="fullWidth"
+      >
+        {tabs.map((tab) => (
+          <Tab key={tab.id} label={tab.title} value={tab.id}></Tab>
+        ))}
+      </Tabs>
+      <div className="flex component">
+        
+      </div>
+    </div>
   );
 }
 
