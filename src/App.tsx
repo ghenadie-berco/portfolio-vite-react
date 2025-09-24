@@ -5,19 +5,24 @@ import "./App.css";
 import TechSkills from "./components/Tech-Skills/Tech-Skills";
 
 function animate(): void {
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      switch (entry.target.id) {
-        case "about":
-          entry.target.classList.toggle("fade-in", entry.isIntersecting);
-          break;
-        default:
-          // console.log("about detected")
-          entry.target.classList.toggle("show-section", entry.isIntersecting);
-          break;
-      }
-    });
-  });
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        switch (entry.target.id) {
+          case "about":
+            entry.target.classList.toggle("fade-in", entry.isIntersecting);
+            break;
+          default:
+            entry.target.classList.toggle(
+              "visible-section",
+              entry.isIntersecting
+            );
+            break;
+        }
+      });
+    },
+    { threshold: 0.2 }
+  );
   const elements = document.querySelectorAll(".section");
   elements.forEach((e) => observer.observe(e));
 }
