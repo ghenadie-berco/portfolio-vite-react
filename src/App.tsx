@@ -13,7 +13,7 @@ function animate(): void {
           break;
         default:
           // console.log("about detected")
-          entry.target.classList.toggle("show", entry.isIntersecting);
+          entry.target.classList.toggle("show-section", entry.isIntersecting);
           break;
       }
     });
@@ -30,11 +30,11 @@ function App() {
       <div id="about" className="section about">
         <About />
       </div>
-      {/* <div className="section hidden projects">Projects</div> */}
-      <div className="section hidden tech-skills">
+      {/* <div className="section hidden-section projects">Projects</div> */}
+      <div className="section hidden-section tech-skills">
         <TechSkills />
       </div>
-      {/* <div className="section hidden contact">Contact</div> */}
+      {/* <div className="section hidden-section contact">Contact</div> */}
     </div>
   );
 }

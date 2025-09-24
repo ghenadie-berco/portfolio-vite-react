@@ -15,13 +15,13 @@
   opacity: 0;
 }
 
-.hidden {
+.hidden-section {
   transform: rotateX(-90deg);
   transform-origin: top center;
   perspective: 600px;
 }
 
-.show {
+.show-section {
   transform: rotateX(0deg);
 }
 

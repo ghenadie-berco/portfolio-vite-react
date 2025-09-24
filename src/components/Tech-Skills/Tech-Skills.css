@@ -19,7 +19,7 @@ li {
   transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
-.show {
+.show-list {
   transform: translateY(0%);
   opacity: 1;
 }
