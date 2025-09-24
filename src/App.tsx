@@ -31,7 +31,7 @@ function App() {
         <About />
       </div>
       {/* <div className="section hidden-section projects">Projects</div> */}
-      <div className="section hidden-section tech-skills">
+      <div className="section hidden-section">
         <TechSkills />
       </div>
       {/* <div className="section hidden-section contact">Contact</div> */}
