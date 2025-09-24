@@ -15,7 +15,7 @@ function animate() {
 export default function About() {
   useEffect(() => animate());
   return (
-    <div className="container">
+    <div className="about-container">
       <h1 className="title title-animation-start">
         <span>
           Transforming
