@@ -1,43 +1,42 @@
-import Tabs from '@mui/material/Tabs';
-import Tab from '@mui/material/Tab';
-import { useState } from "react";
+// import { useState } from "react";
+import { useEffect } from "react";
+import About from "./components/About/About";
 import "./App.css";
+import TechSkills from "./components/Tech-Skills/Tech-Skills";
 
-export interface Tab {
-  id: string;
-  title: string;
+function scrollAnimations(): void {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      switch (entry.target.id) {
+        case "about":
+          entry.target.classList.toggle("fade-in", entry.isIntersecting);
+          break;
+          default:
+          // console.log("about detected")
+          entry.target.classList.toggle("show", entry.isIntersecting);
+          break;
+      }
+    });
+  });
+  const elements = document.querySelectorAll(".section");
+  elements.forEach((e) => observer.observe(e));
 }
 
-const tabs: Tab[] = [
-  { id: "about", title: "About" },
-  { id: "projects", title: "Projects" },
-  { id: "tech-skills", title: "Tech Skills" },
-  { id: "contact", title: "Contact" },
-];
-
 function App() {
-  const [selectedTab, setSelectedTab] = useState(tabs[0].id);
-
-  const handleChange = (_event: React.SyntheticEvent, tabId: string) => {
-    setSelectedTab(tabId);
-  };
+  useEffect(() => {
+    scrollAnimations();
+  });
 
   return (
     <div className="view flex-col">
-      <Tabs
-        value={selectedTab}
-        onChange={handleChange}
-        className="tabs"
-        aria-label="First Level Navigation"
-        variant="fullWidth"
-      >
-        {tabs.map((tab) => (
-          <Tab key={tab.id} label={tab.title} value={tab.id}></Tab>
-        ))}
-      </Tabs>
-      <div className="flex component">
-        
+      <div id="about" className="section about">
+        <About />
       </div>
+      {/* <div className="section hidden projects">Projects</div> */}
+      <div className="section hidden tech-skills">
+        <TechSkills />
+      </div>
+      <div className="section hidden contact">Contact</div>
     </div>
   );
 }

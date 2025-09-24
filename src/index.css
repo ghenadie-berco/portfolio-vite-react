@@ -1,22 +1,24 @@
-
 :root {
-  --accent-primary  : #4c50cf;
+  --accent-primary: #4c50cf;
   --accent-secondary: #333333;
-  --text            : #ffffff;
-  --selected-text   : #ffffff;
-  --highlight       : #d8b1ff;
-  --hover-accent    : #e6cdff;
-  --border-color    : #a4b4ffb3;
+  --text: #ffffff;
+  --selected-text: #ffffff;
+  --highlight: #d8b1ff;
+  --hover-accent: #e6cdff;
+  --border-color: #a4b4ffb3;
 }
 
 html,
 body {
-  padding    : 0;
-  margin     : 0;
+  padding: 0;
+  margin: 0;
   font-family: Roboto, sans-serif;
-  font-size  : 16px;
-  box-sizing : border-box;
-  overflow   : auto;
+  font-size: 16px;
+  box-sizing: border-box;
+  overflow: auto;
+  height: 100%;
+  width: 100%;
+  color: var(--text);
 }
 
 @keyframes backgroundShift {
@@ -34,40 +36,39 @@ body {
 }
 
 body {
-  background: linear-gradient(to bottom right,
-      #060610,
-      #0c0c22,
-      #2b2b6b,
-      #080817,
-      #0a0a1a);
+  background: linear-gradient(
+    to bottom right,
+    #060610,
+    #0c0c22,
+    #2b2b6b,
+    #080817,
+    #0a0a1a
+  );
   background-size: 400% 400%;
-  animation      : backgroundShift 30s ease infinite;
-  display        : flex;
-  overflow       : hidden;
+  animation: backgroundShift 30s ease infinite;
+  display: flex;
+  overflow: hidden;
+}
+
+h1 {
+  padding: 0;
+  margin: 1rem 0;
+}
+
+ul {
+  padding: 0;
 }
 
 .g-width-100 {
   width: 100%;
 }
 
-html,
-body {
-  height: 100%;
-  width : 100%;
-}
-
-body {
-  margin     : 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
-  color      : var(--text);
-}
-
 .view {
   position: absolute;
-  top     : 0;
-  left    : 0;
-  right   : 0;
-  bottom  : 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 
 .component {
@@ -75,12 +76,12 @@ body {
 }
 
 .flex-row {
-  display  : flex;
+  display: flex;
   flex-flow: row nowrap;
 }
 
 .flex-col {
-  display  : flex;
+  display: flex;
   flex-flow: column nowrap;
 }
 
@@ -97,7 +98,7 @@ body {
 }
 
 a {
-  color     : var(--highlight);
+  color: var(--highlight);
   transition: 100ms ease-in-out;
 
   &:hover {
@@ -134,7 +135,7 @@ a {
 }
 
 ::-webkit-scrollbar-thumb {
-  background   : var(--accent-primary);
+  background: var(--accent-primary);
   border-radius: 4px;
 }
 
@@ -147,7 +148,6 @@ a {
 .MuiButtonBase-root {
   color: #fff !important;
 }
-
 
 /* Dev */
 
