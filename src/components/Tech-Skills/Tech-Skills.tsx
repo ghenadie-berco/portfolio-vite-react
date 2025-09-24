@@ -2,11 +2,13 @@ import { useEffect } from "react";
 import "./Tech-Skills.css";
 
 function scrollAnimations(): void {
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      entry.target.classList.toggle("show", entry.isIntersecting);
-    });
-  });
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        entry.target.classList.toggle("show", entry.isIntersecting);
+      });
+    }
+  );
   const elements = document.querySelectorAll("li");
   elements.forEach((e) => observer.observe(e));
 }
@@ -14,7 +16,7 @@ function scrollAnimations(): void {
 export default function TechSkills() {
   useEffect(() => scrollAnimations(), []);
   return (
-    <>
+    <div className="tech-skills">
       <h1>Tech Skills</h1>
       <ul className="list">
         <li>HTML5</li>
@@ -27,8 +29,8 @@ export default function TechSkills() {
         <li>RxJS</li>
         <li>REST API</li>
         <li>GraphQL</li>
-        <li>A11Y</li>
+        <li>Accessibility</li>
       </ul>
-    </>
+    </div>
   );
 }

@@ -4,14 +4,14 @@ import About from "./components/About/About";
 import "./App.css";
 import TechSkills from "./components/Tech-Skills/Tech-Skills";
 
-function scrollAnimations(): void {
+function animate(): void {
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       switch (entry.target.id) {
         case "about":
           entry.target.classList.toggle("fade-in", entry.isIntersecting);
           break;
-          default:
+        default:
           // console.log("about detected")
           entry.target.classList.toggle("show", entry.isIntersecting);
           break;
@@ -23,9 +23,7 @@ function scrollAnimations(): void {
 }
 
 function App() {
-  useEffect(() => {
-    scrollAnimations();
-  });
+  useEffect(() => animate());
 
   return (
     <div className="view flex-col">
@@ -36,7 +34,7 @@ function App() {
       <div className="section hidden tech-skills">
         <TechSkills />
       </div>
-      <div className="section hidden contact">Contact</div>
+      {/* <div className="section hidden contact">Contact</div> */}
     </div>
   );
 }
