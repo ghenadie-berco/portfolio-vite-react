@@ -13,13 +13,13 @@
 }
 
 .about-container {
-  height: 100dvh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: max(1rem, 3vh);
   text-align: center;
+  position: relative;
 }
 
 .title {
@@ -28,17 +28,6 @@
   color: white;
   border-radius: 8px;
   margin: 0;
-}
-
-.title-animation-start {
-  transform: translateY(-100%);
-  opacity: 0;
-}
-
-.title-animation-end {
-  transform: translateY(0%);
-  opacity: 1;
-  transition: all 0.8s ease-in-out;
 }
 
 .highlight {
@@ -56,30 +45,6 @@
   border-radius: 6px;
   margin: 0;
   max-width: min(500px, 90vw);
-}
-
-.description-animation-start {
-  opacity: 0;
-  transform: translateX(-100%);
-}
-
-.description-animation-end {
-  opacity: 1;
-  transform: translateX(0%);
-  transition: all 0.8s ease-in-out;
-  transition-delay: 0.8s;
-}
-
-.image-animation-start {
-  transform: scale(0.1);
-  opacity: 0;
-}
-
-.image-animation-end {
-  transform: scale(1);
-  opacity: 1;
-  transition: all 0.8s ease-in-out;
-  transition-delay: 0.3s;
 }
 
 .profile-image-border {

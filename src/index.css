@@ -144,12 +144,6 @@ a {
   background: var(--accent-primary);
 }
 
-/* Overrides */
-
-.MuiButtonBase-root {
-  color: #fff !important;
-}
-
 /* Dev */
 
 .zzz {

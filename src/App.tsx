@@ -1,45 +1,97 @@
-// import { useState } from "react";
-import { useEffect } from "react";
+import { useState } from "react";
 import About from "./components/About/About";
 import "./App.css";
+import Card from "./shared/Card/Card";
 import TechSkills from "./components/Tech-Skills/Tech-Skills";
+import { MdNavigateNext } from "react-icons/md";
+import { MdNavigateBefore } from "react-icons/md";
 
-function animate(): void {
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        switch (entry.target.id) {
-          case "about":
-            entry.target.classList.toggle("fade-in", entry.isIntersecting);
-            break;
-          default:
-            entry.target.classList.toggle(
-              "visible-section",
-              entry.isIntersecting
-            );
-            break;
-        }
-      });
-    },
-    { threshold: 0.2 }
-  );
-  const elements = document.querySelectorAll(".section");
-  elements.forEach((e) => observer.observe(e));
+enum Page {
+  ABOUT = "ABOUT",
+  TECH_SKILLS = "TECH_SKILLS",
 }
 
 function App() {
-  useEffect(() => animate());
+  const [currentPage, setCurrentPage] = useState(Page.ABOUT);
+
+  const handleNext = () => {
+    if (currentPage === Page.ABOUT) {
+      setCurrentPage(Page.TECH_SKILLS);
+      changePagesVisibility(Page.ABOUT, Page.TECH_SKILLS);
+    }
+  };
+
+  const handlePrev = () => {
+    if (currentPage === Page.TECH_SKILLS) {
+      setCurrentPage(Page.ABOUT);
+      changePagesVisibility(Page.TECH_SKILLS, Page.ABOUT);
+    }
+  };
+
+  const changePagesVisibility = (pageToHide: Page, pageToShow: Page) => {
+    let elementToHide = null;
+    switch (pageToHide) {
+      case Page.ABOUT: {
+        elementToHide = document.querySelector(".about");
+        break;
+      }
+      case Page.TECH_SKILLS: {
+        elementToHide = document.querySelector(".tech-skills");
+        break;
+      }
+    }
+    elementToHide!.classList.add("hidden");
+    elementToHide!.classList.remove("visible");
+    let elementToShow = null;
+    switch (pageToShow) {
+      case Page.ABOUT: {
+        elementToShow = document.querySelector(".about");
+        break;
+      }
+      case Page.TECH_SKILLS: {
+        elementToShow = document.querySelector(".tech-skills");
+        break;
+      }
+    }
+    elementToShow!.classList.add("visible");
+    elementToShow!.classList.remove("hidden");
+  };
 
   return (
-    <div className="view flex-col">
-      <div id="about" className="section about">
-        <About />
+    <div className="view flex-col app-container">
+      {/* Cards */}
+      <div className="flex-row">
+        {/* About */}
+        <div className="card-container about visible">
+          <Card>
+            <About />
+          </Card>
+        </div>
+
+        {/* Tech Skills */}
+        <div className="card-container tech-skills hidden">
+          <Card>
+            <TechSkills />
+          </Card>
+        </div>
       </div>
-      {/* <div className="section hidden-section projects">Projects</div> */}
-      <div className="section hidden-section">
-        <TechSkills />
+      {/* Cards Navigation */}
+      <div className="navigation flex-row">
+        <button
+          className="nav-btn"
+          onClick={handlePrev}
+          disabled={currentPage === Page.ABOUT}
+        >
+          <MdNavigateBefore />
+        </button>
+        <button
+          className="nav-btn"
+          onClick={handleNext}
+          disabled={currentPage === Page.TECH_SKILLS}
+        >
+          <MdNavigateNext />
+        </button>
       </div>
-      {/* <div className="section hidden-section contact">Contact</div> */}
     </div>
   );
 }

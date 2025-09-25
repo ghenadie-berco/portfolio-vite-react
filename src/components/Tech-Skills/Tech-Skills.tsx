@@ -16,7 +16,7 @@ function scrollAnimations(): void {
 export default function TechSkills() {
   useEffect(() => scrollAnimations(), []);
   return (
-    <div className="tech-skills">
+    <div className="tech-skills-container">
       <h1>Tech Skills</h1>
       <ul className="list">
         <li>HTML5</li>

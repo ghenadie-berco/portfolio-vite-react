@@ -1,22 +1,9 @@
-import { useEffect } from "react";
 import "./About.css";
 
-function animate() {
-  const titleRef = document.querySelector(".title");
-  const imageRef = document.querySelector("#image");
-  const descriptionRef = document.querySelector(".description");
-  setTimeout(() => {
-    titleRef?.classList.add("title-animation-end");
-    imageRef?.classList.add("image-animation-end");
-    descriptionRef?.classList.add("description-animation-end");
-  }, 10);
-}
-
 export default function About() {
-  useEffect(() => animate());
   return (
     <div className="about-container">
-      <h1 className="title title-animation-start">
+      <h1 className="title">
         <span>
           Transforming
           <br />
@@ -29,7 +16,7 @@ export default function About() {
           User Experiences
         </span>
       </h1>
-      <div id="image" className="image-animation-start profile-image-container">
+      <div id="image" className="profile-image-container">
         <div className="profile-image-border">
           <img
             src="assets/pro-photo-(filter).jpg"
@@ -38,7 +25,7 @@ export default function About() {
           />
         </div>
       </div>
-      <p className="description description-animation-start">
+      <p className="description">
         Hi! I'm Ghenadie, a Frontend Developer based in NYC. I'm passionate
         about crafting the future of web experiences through innovative
         technologies.
